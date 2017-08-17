@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Práctica 1 - Sistemas Distribuidos</title>
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script type="text/javascript" src="node_modules/moment/moment.js"></script>
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+
+    <script type="text/javascript" src="node_modules/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="node_modules/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="node_modules/angular-material/angular-material.js"></script>
+
+    <script type="text/javascript" src="js/clock.app.js"></script>
+    <script type="text/javascript" src="js/clock.controller.js"></script>
+  </head>
+  <body ng-app="Clock" ng-controller="clockController">
+    <table class="clocksContainer">
+      <tr>
+        <td>
+          <clock></clock><br>
+          
+        </td>
+        <td><clock></clock></td>
+      </tr>
+      <tr>
+        <td><clock></clock></td>
+        <td><clock></clock></td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "thread-clocks",
+  "version": "1.0.0",
+  "description": "Practica 1 - Sistemas distribuidos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuisEGR/ThreadsClocks.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LuisEGR/ThreadsClocks/issues"
+  },
+  "homepage": "https://github.com/LuisEGR/ThreadsClocks#readme",
+  "dependencies": {
+    "angular-animate": "^1.6.5",
+    "angular-aria": "^1.6.5",
+    "angular-material": "^1.1.4",
+    "moment": "^2.18.1"
+  }
+}
