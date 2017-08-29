@@ -14,14 +14,14 @@
     <script type="text/javascript" src="node_modules/angular-aria/angular-aria.js"></script>
     <script type="text/javascript" src="node_modules/angular-material/angular-material.js"></script>
     <script type="text/javascript" src="node_modules/mdPickers/dist/mdPickers.js"></script>
-
+    <script type="text/javascript" src="node_modules/socket.io-client/dist/socket.io.js"></script>
     <script type="text/javascript" src="js/clock.app.js"></script>
     <script type="text/javascript" src="js/clock.controller.js"></script>
   </head>
   <body ng-app="Clock" ng-controller="clockController">
-    <div class="clk-container" ng-repeat="nc in totalClocks track by $index">
+    <div class="clk-container" ng-repeat="nc in timeClock track by $index">
       <div class="clock" >
-        {{timeClock[$index].format("HH:mm:ss")}}
+        {{timeClock[$index]}}
         <md-button class="md-fab md-mini md-primary btn-editar" ng-click="editTime($event, $index)">
           <md-icon md-font-icon="fa fa-edit"></md-icon>
         </md-button>
