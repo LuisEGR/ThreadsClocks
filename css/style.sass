@@ -9,6 +9,10 @@ html, body
   margin: 0
   font-family: Helvetica
   background: #1f495f
+  background: #457fca;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #5691c8, #457fca);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #5691c8, #457fca); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 div.clock
   position: relative
@@ -22,7 +26,7 @@ div.clock
   text-align: center
   border-radius: 10px
   margin-top: 18%
-  box-shadow: 0 0 10px 5px rgba(0,0,0,0.06)
+  box-shadow: 1px 5px 20px 5px rgba(0, 0, 0, 0.21)
 
 div.clk-container
   display: inline-block

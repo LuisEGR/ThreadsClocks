@@ -4,6 +4,10 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const moment = require('moment');
 
+const Reloj = require('./modulos/reloj.class.js');
+
+
+
 var relojes = [moment(),moment(),moment(),moment()];
 
 
@@ -18,10 +22,6 @@ if (cluster.isMaster) {
     });
   }
 
-  //
-  cluster.on('exit', (worker, code, signal) => {
-    console.log(`worker ${worker.process.pid} muerto`);
-  });
 
   // Queda a la escucha de nuevas conexiones
   io.sockets.on('connect', function (socket) {
@@ -45,7 +45,7 @@ if (cluster.isMaster) {
 
   //Servidor http con el que se conectará la vista
   server.listen(3000,function(){
-      console.log("Servidor iniciado!");
+      // console.log("Servidor iniciado!");
   });
 
 
@@ -53,27 +53,7 @@ if (cluster.isMaster) {
 } else {
   console.log(process.pid + " Soy el worker: ", cluster.worker.id - 1);
   // Cada proceso hijo se encarga de procesar 1 reloj
-  var myTime = moment();
   var workerId = cluster.worker.id - 1;
-
-  setInterval(function(){// a cada segundo
-    // Se resta un segundo a el tiempo de este reloj
-    myTime.subtract(1, 'seconds');
-    //Envio mensaje al proceso principal
-    process.send({
-      workerId:  workerId,
-      time: myTime
-    })
-  }, 1000);
-
-  //Recibo mensaje del proceso master
-  process.on('message', function(msg) {
-    console.log(msg);
-    //si es una actualización de tiempo
-    if(msg.type == 'update'){
-      //Establezco el tiempo al enviado por el proceso principal
-      myTime = moment(msg.newTime);
-    }
-  });
-
+  var reloj = new Reloj();
+  reloj.start(process, workerId);
 }
